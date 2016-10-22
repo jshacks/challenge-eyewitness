@@ -1,0 +1,39 @@
+{
+  "name": "Review",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "comment": {
+      "type": "string",
+      "required": true
+    },
+    "commentRating": {
+        "type": "number"
+    },
+    "AcquisitionId": {
+        "type": "string",
+        "required": true
+    },
+    "AcquisitionStatus": {
+        "type": "string",
+        "required": true
+    },
+    "conditions": {
+        "type": "object",
+        "default": {
+            "started" : false,
+            "startedInTime" : false,
+            "finished" : false,
+            "finishedIntime" : false,
+            "validProcess" : false
+        }
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
