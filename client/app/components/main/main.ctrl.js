@@ -3,10 +3,15 @@
 
     angular
         .module('eyewitness')
-        .controller('MainCtrl', [MainCtrl]);
+        .controller('MainCtrl', ['Modals', MainCtrl]);
 
-    function MainCtrl () {
+    function MainCtrl (Modals) {
         var self = this;
+
+
+        self.openModalHandler = function openModalHandler () {
+            Modals.openDetaliedModal('qwerty');
+        }
     }
 
 }());

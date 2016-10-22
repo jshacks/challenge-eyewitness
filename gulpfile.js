@@ -22,7 +22,6 @@ gulp.task('fetchLibs', () => {
 gulp.task('inject', () => {
     var target = gulp.src('./client/index.html');
 
-    console.log(libsDir + 'underscore.js');
     var jsLibs = gulp.src([
         './client/libs/underscore.js',
         libsDir + 'underscore.js',
@@ -36,8 +35,6 @@ gulp.task('inject', () => {
         './client/app/*.js',
         './client/app/**/*.js'
     ]);
-
-
 
 
     return target.pipe(plugins.inject(jsLibs, {
