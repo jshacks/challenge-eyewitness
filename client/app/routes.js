@@ -14,7 +14,7 @@
                 controllerAs: 'main'
             });
 
-        $urlRouterProvider.otherwise('/login');
+        $urlRouterProvider.otherwise('/');
     }
 
 }());
