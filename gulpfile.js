@@ -1,3 +1,5 @@
+'use strict';
+
 var gulp = require('gulp');
 
 var gulpLoadPlugins = require('gulp-load-plugins');
@@ -5,7 +7,7 @@ var plugins = gulpLoadPlugins();
 
 var mainBowerFiles = require('main-bower-files');
 
-var libsDir = './client/app/libs/';
+var libsDir = './client/libs/';
 
 gulp.task('fetchLibs', () => {
     var mainFiles = mainBowerFiles();
@@ -13,7 +15,6 @@ gulp.task('fetchLibs', () => {
     gulp.src(libsDir + '*', {read: false})
         .pipe(plugins.clean());
 
-    console.log(mainFiles);
     gulp.src(mainFiles)
         .pipe(gulp.dest(libsDir));
 });
@@ -21,7 +22,9 @@ gulp.task('fetchLibs', () => {
 gulp.task('inject', () => {
     var target = gulp.src('./client/index.html');
 
+    console.log(libsDir + 'underscore.js');
     var jsLibs = gulp.src([
+        './client/libs/underscore.js',
         libsDir + 'underscore.js',
         libsDir + 'angular.js',
         libsDir + 'angular-ui-router.js',
@@ -33,6 +36,9 @@ gulp.task('inject', () => {
         './client/app/*.js',
         './client/app/**/*.js'
     ]);
+
+
+
 
     return target.pipe(plugins.inject(jsLibs, {
         relative: true,
