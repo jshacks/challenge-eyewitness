@@ -1,0 +1,20 @@
+{
+  "name": "Aquisition",
+  "plural": "Aquisitions",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "tenderId": {
+      "type": "Number",
+      "id": false,
+      "description": "Tender ID"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
