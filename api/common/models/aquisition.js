@@ -7,6 +7,7 @@ var parse = require('csv-parse');
 var transform = require('stream-transform');
 
 var loopback = require('loopback');
+var Review = loopback.getModel('Review');
 
 var TENDER_LIST_URL = 'http://etender.gov.md/json/tenderList';
 
@@ -141,6 +142,44 @@ module.exports = function(Aquisition) {
     });
 
   };
+  Aquisition.rating = function rating(id) {
+      return Review.find({ where: { AcquisitionId: id } })
+          .then(generateRating)
+  }
+  function generateRating(reviews) {
+    const comments = reviews.map(el => ({
+        id: el.id,
+        message: el.comment,
+        likes: el.commentRating
+    }));
+    const sum = (counter, iteration) => {
+        let result = {}
+        for (const key in counter) {
+            result[key] = counter[key] + +iteration[key]
+        }
+        return result;
+    }
+    const conditions = reviews.map(el => el.conditions)
+        .reduce((acc, curr) => sum(acc, curr), {
+            started: 0,
+            startedInTime: 0,
+            finished: 0,
+            finishedIntime: 0,
+            validProcess: 0
+        });
+
+    const rating = comments.map(comment => comment.likes)
+        .reduce((sum, curr) => sum + curr, 0) % 5; // please, don't judge me
+
+    return { comments, conditions, rating };
+  }
+
+  Aquisition.rateIt = function createReview(data) {
+     return Review.create(data).then(obj => Review
+         .find({ where: { AcquisitionId: obj.AcquisitionId } })
+         .then(generateRating)
+     );
+  }
 
   Aquisition.parse = function(cb) {
 
@@ -236,5 +275,19 @@ module.exports = function(Aquisition) {
       returns: {arg: 'status', type: 'boolean'}
     }
   );
+
+  Aquisition.remoteMethod('rating', {
+      accepts: { arg: 'id', type: 'string' },
+      http: { verb: 'get' },
+      returns: [
+          { arg: 'details', type: 'object' }
+      ]
+  });
+  Aquisition.remoteMethod('rateIt', {
+      accepts: { type: 'object', root: true },
+      returns: [
+          { arg: 'details', type: 'object' }
+      ]
+  });
 
 };

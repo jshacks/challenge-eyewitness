@@ -32,12 +32,12 @@
     "dataSource": "db",
     "public": false
   },
-    "Aquisition": {
-        "dataSource": "db",
-        "public": true
-    },
   "Review": {
     "dataSource": "db",
     "public": true
-  }
+    },
+    "Aquisition": {
+        "dataSource": "db",
+        "public": true
+    }
 }
