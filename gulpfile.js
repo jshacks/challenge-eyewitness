@@ -35,7 +35,14 @@ gulp.task('inject', () => {
         libsDir + 'angular-aria.js',
         libsDir + 'angular-material.js',
         libsDir + 'angular-message.js',
-        libsDir + 'md-data-table.js'
+        libsDir + 'md-data-table.js',
+        libsDir + 'auth0.js',
+        libsDir + 'lock.js',
+        libsDir + 'angular-auth0.js',
+        libsDir + 'ngGeolocation.js',
+        libsDir + 'angular-jwt.js',
+        libsDir + 'angular-storage.js',
+        libsDir + 'angular-lock.js'
     ]);
 
     var cssLibs = gulp.src(libsDir + '*.css');

@@ -3,10 +3,81 @@
 
     angular
         .module('eyewitness')
-        .controller('MainCtrl', ['Modals', '$timeout', MainCtrl]);
+        .controller('MainCtrl', ['Modals', '$geolocation', 'NgMap', 'authService', '$timeout', '$scope', MainCtrl]);
 
-    function MainCtrl (Modals, $timeout) {
+    function MainCtrl (Modals, $geolocation, NgMap, authService, $timeout, $scope) {
         var self = this;
+
+        self.profile = null;
+
+        // Get profile, if logged in
+        authService.getProfileDeferred().then(function (profile) {
+            self.profile = profile;
+        });
+
+        // Get map instance
+        NgMap.getMap().then(function(map) {
+
+            self.map = map;
+
+            /*$geolocation.getCurrentPosition({
+                timeout: 60000
+            }).then(function(position) {
+
+                const { coords: { latitude, longitude } } = position;
+
+                var latLng = new google.maps.LatLng(latitude, longitude);
+
+                // Pan to client location
+                map.panTo(latLng);
+
+            });*/
+
+            // Watch the position change of client
+            $geolocation.watchPosition({
+                timeout: 60000,
+                maximumAge: 250,
+                enableHighAccuracy: true
+            });
+
+            $scope.position = $geolocation.position;
+
+            $scope.$watch('position.coords', function (newValue = {}, oldValue) {
+
+                const {latitude, longitude} = newValue;
+
+                if(!latitude) return;
+
+                var latLng = new google.maps.LatLng(latitude, longitude);
+
+                // Pan to client location
+                map.panTo(latLng);
+
+                /*$scope.map = {
+                    center: {
+                        latitude: newValue.latitude,
+                        longitude: newValue.longitude
+                    },
+                    zoom: 16
+                };*/
+            }, true);
+
+            /*// Get current client location
+            geolocation.getLocation().then(function(data){
+
+                const coords = {lat:data.coords.latitude, long:data.coords.longitude};
+
+                var latLng = new google.maps.LatLng(coords.lat, coords.long);
+
+                // Pan to client location
+                map.panTo(latLng);
+
+            });
+*/
+            /*console.log(map.getCenter());
+            console.log('markers', map.markers);
+            console.log('shapes', map.shapes);*/
+        });
 
         self.promise = function () {
             return 123;
