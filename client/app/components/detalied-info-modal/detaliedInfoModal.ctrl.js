@@ -8,6 +8,7 @@
     function DetaliedInfoModal (data) {
         var self = this;
 
+        self.da = 'da';
 
         console.log(data);
     }

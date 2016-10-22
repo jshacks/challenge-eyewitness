@@ -9,8 +9,8 @@
         var self = this;
 
 
-        self.openModalHandler = function openModalHandler () {
-            Modals.openDetaliedModal('qwerty');
+        self.openModalHandler = function openModalHandler (event) {
+            Modals.openDetaliedModal(event, 'qwerty');
         }
     }
 
