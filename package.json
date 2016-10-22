@@ -1,5 +1,5 @@
 {
-  "name": "eyewithness",
+  "name": "eyewitness",
   "version": "0.1.0",
   "description": "A JSHacks boilerplate for setting up projects in a consistent way",
   "main": "src/index.js",
@@ -19,6 +19,8 @@
     "gulp-clean": "^0.3.2",
     "gulp-inject": "^4.1.0",
     "gulp-load-plugins": "^1.3.0",
+    "gulp-sass": "^2.3.2",
+    "gulp-sourcemaps": "^2.1.1",
     "main-bower-files": "^2.13.1"
   },
   "repository": {

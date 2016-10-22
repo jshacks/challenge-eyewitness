@@ -8,6 +8,9 @@ var plugins = gulpLoadPlugins();
 var mainBowerFiles = require('main-bower-files');
 
 var libsDir = './client/libs/';
+var assetsDir = './client/assets/';
+var srcDir = './src/';
+var sassDir = srcDir + 'sass/';
 
 gulp.task('fetchLibs', () => {
     var mainFiles = mainBowerFiles();
@@ -52,4 +55,20 @@ gulp.task('inject', () => {
         starttag: '<!-- inject:app:{{ext}} -->'
     })).pipe(gulp.dest('client'));
 
+});
+
+gulp.task('sass', () => {
+    return gulp.src(sassDir + 'eyewitness.scss')
+        .pipe(plugins.sourcemaps.init())
+        .pipe(plugins.sass({outputStyle: 'expanded'})
+            .on('error', plugins.sass.logError))
+        .pipe(plugins.sourcemaps.write())
+        .pipe(gulp.dest(assetsDir + 'css'));
+});
+
+gulp.task('watch', () => {
+    return gulp.watch([
+        sassDir + '*.scss',
+        sassDir + '**/*.scss'
+    ], ['sass']);
 });

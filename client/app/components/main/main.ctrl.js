@@ -11,7 +11,7 @@
 
         self.openModalHandler = function openModalHandler () {
             Modals.openDetaliedModal('qwerty');
-        }
+        };
     }
 
 }());
