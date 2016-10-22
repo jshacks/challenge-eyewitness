@@ -9,12 +9,12 @@
         $stateProvider
             .state('main', {
                 url: '/',
-                templateUrl: '/app/components/main/main.tpl',
-                controller: 'mainCtrl',
+                templateUrl: '/app/components/main/main.tpl.html',
+                controller: 'MainCtrl',
                 controllerAs: 'main'
             });
 
-        $urlRouterProvider.otherwise('/login');
+        $urlRouterProvider.otherwise('/');
     }
 
 }());

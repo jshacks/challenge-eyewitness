@@ -1,5 +1,6 @@
 angular.module('eyewitness', [
     'ui.router',
     'angularModalService',
-    'ngMap'
+    'ngMap',
+    'ngMaterial'
 ]);
