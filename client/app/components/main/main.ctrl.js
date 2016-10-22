@@ -8,11 +8,6 @@
     function MainCtrl (Modals, $timeout) {
         var self = this;
 
-
-        self.openModalHandler = function openModalHandler () {
-            Modals.openDetaliedModal('qwerty');
-        };
-
         self.promise = function () {
             return 123;
         };
@@ -531,6 +526,12 @@
         ];
 
         self.count = self.data.length;
+
+        self.openModalHandler = function openModalHandler (event) {
+            Modals.openDetaliedModal(event, 'qwerty');
+        }
+
+        self.openModalHandler('a');
     }
 
 }());

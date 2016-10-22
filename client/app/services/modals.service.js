@@ -3,19 +3,22 @@
 
     angular
         .module('eyewitness')
-        .factory('Modals', ['ModalService', Modals]);
+        .factory('Modals', ['$mdDialog', Modals]);
 
-    function Modals (ModalService) {
+    function Modals ($mdDialog) {
 
-        function openDetaliedModal (data) {
+        function openDetaliedModal (ev, data) {
 
-            return ModalService.showModal({
+            return $mdDialog.show({
                 templateUrl: "app/components/detalied-info-modal/detalied-info-modal.tpl.html",
                 controller: "DetaliedInfoModal",
                 controllerAs: 'detail',
-                inputs: {
+                locals: {
                     data: data
-                }
+                },
+                parent: angular.element(document.body),
+                targetEvent: ev,
+                clickOutsideToClose:true,
             });
 
         }

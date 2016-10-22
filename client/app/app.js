@@ -3,5 +3,6 @@ angular.module('eyewitness', [
     'angularModalService',
     'ngMap',
     'ngMaterial',
-    'md.data.table'
+    'md.data.table',
+    'mega.rating'
 ]);

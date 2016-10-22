@@ -1,3 +1,260 @@
-<div>
-    trololot
-</div>
+<!--
+    controllerAs: detail
+-->
+<style>
+
+    .detalied-info-modal {
+        width: 100%;
+        height: 100%;
+        max-width: 95%;
+        max-height: 95%;
+    }
+
+    .item {
+        padding: 5px;
+    }
+
+    .key {
+        font-weight: 700;
+    }
+
+    .rating-checkboxes {
+        padding: 10px;
+        width: 30%;
+    }
+
+    .rating-stars {
+        padding: 10px;
+        width: 80%;
+    }
+
+    .rating-stars .stars {
+        display: flex;
+        justify-content: center;
+    }
+
+    .comments {
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+
+    .comments .comment {
+        align-items: center;
+        padding-bottom: 10px;
+    }
+
+    .comment-form {
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+
+ul.rating li {
+  display: inline;
+  border: 0px;
+  background: none;
+  padding: 5px 10px;
+}
+ul.rating li i {
+  font-size: 30px;
+}
+
+</style>
+<md-dialog aria-label="Detalied info" class="detalied-info-modal">
+
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>Detalied info</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="detail.closeHandler()" aria-label="Close">
+                <i class="fa fa-close"></i>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-dialog-content>
+        <md-tabs md-dynamic-height>
+
+            <md-tab label="Basic info">
+                <md-content class="md-padding" class="basic-info">
+                    <div layout="row" layout-align="space-around center">
+                        <div class="item">
+                            <div class="key">Cod CPV</div>
+                            <div class="value">33140000-3</div>
+                        </div>
+                        <div class="item">
+                            <div class="key">Număr BAP</div>
+                            <div class="value">81</div>
+                        </div>
+                        <div class="item">
+                            <div class="key">Data BAP</div>
+                            <div class="value">21.10.2016</div>
+                        </div>
+                    </div>
+                </md-content>
+            </md-tab>
+
+
+
+
+
+
+
+
+
+
+
+            <md-tab label="Rating">
+                <md-content class="md-padding">
+                    <div layout="row" layout-align="space-around center">
+                        <md-card class="rating-stars">
+                            <div class="stars">
+                                <rating ng-model="detail.rate.value" max="5"></rating>
+                            </div>
+                        </md-card>
+                    </div>
+                    <div layout="row" layout-align="space-around center">
+                        <md-card class="rating-checkboxes">
+                            <md-checkbox
+                                ng-disabled="true"
+                                aria-label="Disabled checked checkbox"
+                                ng-model="data.cb4"
+                                ng-init="data.cb4=true">
+                                In time
+                            </md-checkbox>
+
+                            <md-checkbox
+                                ng-disabled="true"
+                                aria-label="Disabled checked checkbox"
+                                ng-model="data.cb4"
+                                ng-init="data.cb4=true">
+                                In time
+                            </md-checkbox>
+
+                            <md-checkbox
+                                md-indeterminate
+                                aria-label="Checkbox Disabled Indeterminate"
+                                ng-disabled="true"
+                                class="md-primary">
+                                Privet mamke
+                            </md-checkbox>
+                        </md-card>
+
+                        <md-card class="rating-checkboxes">
+                            <md-checkbox
+                                md-indeterminate
+                                aria-label="Checkbox Disabled Indeterminate"
+                                ng-disabled="true"
+                                class="md-primary">
+                                Many many many
+                            </md-checkbox>
+
+                            <md-checkbox
+                                md-indeterminate
+                                aria-label="Checkbox Disabled Indeterminate"
+                                ng-disabled="true"
+                                class="md-primary">
+                                Privet mamke
+                            </md-checkbox>
+
+                            <md-checkbox
+                                ng-disabled="true"
+                                aria-label="Disabled checked checkbox"
+                                ng-model="data.cb4"
+                                ng-init="data.cb4=true">
+                                In time
+                            </md-checkbox>
+                        </md-card>
+                    </div>
+
+
+                    <md-list class="comments">
+                        <h3>Comments</h3>
+                        <md-list-item class="md-3-line comment">
+                            <div class="md-list-item-text">
+                                You asked, Font Awesome delivers with 30 shiny new icons in version 4.6. Want to request new icons? Here's how. Need vectors or want to use on the desktop? Check the cheatsheet
+                                Angular Material recently released Version 1 which we consider to be stable and ready for production use. Developers should note that Angular Material v1 works only with Angular 1.x.
+Current Angular Material v1.x development efforts are focused on bug fixes and minor improvements.
+Angular Material v2 development is also in-progress at the angular/material2 GitHub repository.
+Please refer to our changelog for up-to-date listings of all v1.x improvements and breaking changes.
+                            </div>
+                            <md-button class="md-primary">like</md-button>
+                            <md-button class="md-warn">dislike</md-button>
+                            <md-divider ng-if="!$last"></md-divider>
+                        </md-list-item>
+                        <md-list-item class="md-3-line comment">
+                            <div class="md-list-item-text">
+                                By default, md-autocomplete will cache results when performing a query. After the initial call is performed, it will use the cached results to eliminate unnecessary server requests or lookup logic. This can be disabled above.
+                            </div>
+                            <md-button class="md-primary">like</md-button>
+                            <md-button class="md-warn">dislike</md-button>
+                            <md-divider ng-if="!$last"></md-divider>
+                        </md-list-item>
+                        <md-list-item class="md-3-line comment">
+                            <div class="md-list-item-text">
+                                Custom component implementations using Material elements often want to easily apply Theme colors to their custom components. Consider the custom component below where the md-colors attribute is used to color the background and text colors using either the current or specified Theme palette colors.
+                            </div>
+                            <md-button class="md-primary">like</md-button>
+                            <md-button class="md-warn">dislike</md-button>
+                        </md-list-item>
+                    </md-list>
+                </md-content>
+            </md-tab>
+
+
+
+
+
+
+
+
+
+
+            <md-tab label="Send your feedback">
+                <md-content class="md-padding">
+                    <div layout="row" layout-align="space-around center">
+                        <md-card class="rating-checkboxes">
+                            <md-checkbox>
+                                In time
+                            </md-checkbox>
+
+                            <md-checkbox>
+                                In time
+                            </md-checkbox>
+
+                            <md-checkbox>
+                                Privet mamke
+                            </md-checkbox>
+                        </md-card>
+
+                        <md-card class="rating-checkboxes">
+                            <md-checkbox>
+                                Many many many
+                            </md-checkbox>
+
+                            <md-checkbox>
+                                Privet mamke
+                            </md-checkbox>
+
+                            <md-checkbox>
+                                In time
+                            </md-checkbox>
+                        </md-card>
+                    </div>
+
+                    <div class="comment-form">
+                        <div>
+                            <md-input-container class="md-block">
+                                <label>Your comment:</label>
+                                <textarea rows="5" md-select-on-focus></textarea>
+                            </md-input-container>
+                        </div>
+                        <div layout="row" layout-align="end center">
+                            <md-button class="md-raised md-primary">Send</md-button>
+                        </div>
+                    </div>
+                </md-content>
+            </md-tab>
+
+        </md-tabs>
+    </md-dialog-content>
+
+</md-dialog>
