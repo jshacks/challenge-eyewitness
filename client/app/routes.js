@@ -10,8 +10,8 @@
             .state('main', {
                 url: '/',
                 templateUrl: '/app/components/main/main.tpl',
-                controller: 'userManagementCtrl',
-                controllerAs: 'login'
+                controller: 'mainCtrl',
+                controllerAs: 'main'
             });
 
         $urlRouterProvider.otherwise('/login');
