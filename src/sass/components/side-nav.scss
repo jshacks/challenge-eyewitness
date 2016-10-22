@@ -1,0 +1,13 @@
+.side-nav {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 15;
+    width: 250px;
+    height: 100vh;
+    background: transparentize($white, .05);
+
+    .md-table-container {
+        height: 100vh;
+    }
+}

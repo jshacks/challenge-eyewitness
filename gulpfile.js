@@ -34,7 +34,8 @@ gulp.task('inject', () => {
         libsDir + 'angular-animate.js',
         libsDir + 'angular-aria.js',
         libsDir + 'angular-material.js',
-        libsDir + 'angular-message.js'
+        libsDir + 'angular-message.js',
+        libsDir + 'md-data-table.js'
     ]);
 
     var cssLibs = gulp.src(libsDir + '*.css');

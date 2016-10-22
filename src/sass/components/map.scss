@@ -4,3 +4,7 @@ ng-map {
     height: 100vh;
 }
 
+.map-container {
+    position: fixed;
+    z-index: 1;
+}
