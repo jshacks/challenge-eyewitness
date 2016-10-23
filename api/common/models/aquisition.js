@@ -103,11 +103,11 @@ module.exports = function(Aquisition) {
 
       var where = {};
 
-      if(filters['statusId']) {
+      if(filters && filters['statusId']) {
           where['data.tenderStatus.id'] = filters['statusId'];
       }
 
-      if(filters['cpv']) {
+      if(filters && filters['cpv']) {
           where['data.tenderData.goods.code'] = filters['cpv'];
       }
 

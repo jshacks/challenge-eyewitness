@@ -43,7 +43,9 @@ gulp.task('inject', () => {
         libsDir + 'angular-jwt.js',
         libsDir + 'angular-storage.js',
         libsDir + 'angular-lock.js',
-        libsDir + 'dirPagination.js'
+        libsDir + 'dirPagination.js',
+        libsDir + 'angular-resource.js',
+        libsDir + 'angular-lock.js'
     ]);
 
     var cssLibs = gulp.src(libsDir + '*.css');
