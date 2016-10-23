@@ -10,7 +10,7 @@
                     <!--title={{::marker.title}}-->
             <!--&gt;-->
 
-            <custom-marker ng-repeat="marker in main.markers" id="foo" position="{{::marker.position}}" id="{{marker.id}}">
+            <custom-marker ng-repeat="marker in main.markers track by $index" id="foo" position="{{::marker.position}}" on-click="main.openInfoWindow($index)">
                 <div class="marker marker-status-{{::marker.statusId}}">
                     {{::marker.price}} MDL
                     <br/>

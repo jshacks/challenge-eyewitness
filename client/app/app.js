@@ -34,7 +34,7 @@ angular.module('eyewitness', [
 
     LoopBackResourceProvider.setAuthHeader('X-Access-Token');
 
-    LoopBackResourceProvider.setUrlBase('http://172.20.10.8:3000/api')
+    LoopBackResourceProvider.setUrlBase('http://127.0.0.1:3000/api')
     lockProvider.init({
         clientID: 'urANnKd7ms9SHtPm1oh4xgtUbF1AiTpJ',
         domain: 'maximblack.eu.auth0.com',

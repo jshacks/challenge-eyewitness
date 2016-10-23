@@ -48,10 +48,28 @@
             self.profile = profile;
         });
 
+        self.openInfoWindow = function(event, markerIndex) {
+
+            const marker = self.markers[markerIndex];
+
+            const latLng = new google.maps.LatLng({
+                lat: marker.position[0],
+                lng: marker.position[1]
+            });
+
+            self.infoWindow.setContent(marker.title); // can be dom node
+            self.infoWindow.setPosition(latLng);
+            self.infoWindow.open(self.map);
+        };
+
         // Get map instance
         NgMap.getMap().then(function(map) {
 
             self.map = map;
+
+            self.infoWindow = new google.maps.InfoWindow({
+                maxWidth: 420
+            });
 
             $geolocation.getCurrentPosition({
                 timeout: 60000
