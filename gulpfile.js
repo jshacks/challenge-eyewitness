@@ -45,7 +45,9 @@ gulp.task('inject', () => {
         libsDir + 'angular-lock.js',
         libsDir + 'dirPagination.js',
         libsDir + 'angular-resource.js',
-        libsDir + 'angular-lock.js'
+        libsDir + 'angular-lock.js',
+        libsDir + 'angular-sanitize.js',
+        libsDir + 'ngToast.js'
     ]);
 
     var cssLibs = gulp.src(libsDir + '*.css');

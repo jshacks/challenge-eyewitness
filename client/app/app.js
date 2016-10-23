@@ -12,17 +12,29 @@ angular.module('eyewitness', [
     'auth0.lock',
     'angularUtils.directives.dirPagination',
     'ngResource',
-    'lbServices'
+    'lbServices',
+    'ngSanitize',
+    'ngToast'
 ])
 
 .service('authService', authService)
+
+    .config(['ngToastProvider', function (ngToast) {
+        ngToast.configure({
+            horizontalPosition: 'center',
+            dismissButton: true,
+            combineDuplications: true,
+            dismissOnClick: true,
+            animation: 'slide'
+        });
+    }])
 
 .config(['lockProvider', 'LoopBackResourceProvider',
     function(lockProvider, LoopBackResourceProvider) {
 
     LoopBackResourceProvider.setAuthHeader('X-Access-Token');
 
-    LoopBackResourceProvider.setUrlBase('http://192.168.0.170:3000/api')
+    LoopBackResourceProvider.setUrlBase('http://172.20.10.8:3000/api')
     lockProvider.init({
         clientID: 'urANnKd7ms9SHtPm1oh4xgtUbF1AiTpJ',
         domain: 'maximblack.eu.auth0.com',
