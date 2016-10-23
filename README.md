@@ -11,7 +11,7 @@ $ bower install
 
 ### Install gulp globaly ###
 ```
-$ sudo npm install gulp
+$ sudo npm install gulp -g
 ```
 
 ### Build the project: ###
