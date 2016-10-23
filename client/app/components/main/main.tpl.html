@@ -63,7 +63,7 @@
         <h1>Eyewitness</h1>
         <input type="search" placeholder="Search acqusition titles" ng-model="search">
         <p>List of public acquisitions:</p>
-    </div>
+    </div>;
     <ul class="acquisitions">
         <li dir-paginate="item in main.acquisitions | itemsPerPage: 20 | filter:search">
             <a href="!#">{{ item.description }}</a>
