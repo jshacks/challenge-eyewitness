@@ -8,3 +8,70 @@ ng-map {
     position: fixed;
     z-index: 1;
 }
+
+.marker {
+    padding: 3px;
+    background-color: $cyan;
+    border-radius: 2px;
+
+    &.marker-status-8 {
+        background: lightgray;
+
+        &::after {
+            border-top-color: lightgray;
+        }
+    }
+
+    &.marker-status-9 {
+        background: lightgreen;
+
+        &::after {
+            border-top-color: lightgreen;
+        }
+    }
+
+    &.marker-status-3 {
+        background: lightcoral;
+
+        &::after {
+            border-top-color: lightcoral;
+        }
+    }
+
+    &.marker-status-2 {
+        background: lightblue;
+
+        &::after {
+            border-top-color: lightblue;
+        }
+    }
+
+    &.marker-status-6 {
+        background: lightyellow;
+
+        &::after {
+            border-top-color: lightyellow;
+        }
+    }
+
+    &::after {
+        position: absolute;
+        bottom: -8px;
+        left: 50%;
+        width: 0;
+        height: 0;
+        margin-left: -8px;
+        border-top: 8px solid $cyan;
+        border-right: 8px solid transparent;
+        border-left: 8px solid transparent;
+        content: '';
+    }
+}
+
+/*
+id 8 = neutral
+id 9 = green
+id 3 = red
+id 2 = light blue
+id 6 = yellow
+*/

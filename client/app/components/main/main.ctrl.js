@@ -24,13 +24,19 @@
                 self.markers.push({
                     id: acquisition.id,
                     title: acquisition.type,
-                    position: [acquisition.location.lat, acquisition.location.lng]
+                    position: [acquisition.location.lat, acquisition.location.lng],
+                    price: acquisition.price,
+                    statusId: acquisition.statusId
                 });
 
             });
 
             console.log('markers', self.markers);
 
+        });
+
+        Aquisition.statuses({}, (res) => {
+            console.log('Aquisition.statuses', res);
         });
 
         //Aquisition.rating({ id: "580b6db54d3873f948e18332" }, (res) => console.log(res))

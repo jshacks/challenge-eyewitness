@@ -13,6 +13,7 @@
     }
 
     .acquisitions {
+        margin-top: 120px;
         margin-bottom: 48px;
 
         li a {
@@ -50,5 +51,28 @@
                 padding: .5rem;
             }
         }
+    }
+
+    .static-top {
+        position: fixed;
+        top: 0;
+        width: 250px;
+        padding: 1rem .5rem;
+        background: $white;
+    }
+
+    h1,
+    h2,
+    p {
+        margin: 0;
+    }
+
+    h1 {
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    [type=search] {
+        margin-bottom: 1rem;
     }
 }

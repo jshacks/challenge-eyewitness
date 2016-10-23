@@ -120,11 +120,19 @@ module.exports = function(Aquisition) {
 
           var entryData = entry.data;
 
+            var minPrice = 50;
+            var maxPrice = 200000;
+            var price = Math.floor(Math.random() * (maxPrice - minPrice + 1)) + minPrice;
+
           return {
             id: entry.id,
+
+            price: price,
+
             tenderId: entry.tenderId,
             location: entry.location,
             status: entryData.tenderStatus.mdValue,
+              statusId: entryData.tenderStatus.id,
             type: entryData.tenderType.mdValue,
             description: entryData.tenderData.goodsDescr,
             open_date: entryData.refTendeOpenDate,
@@ -284,7 +292,7 @@ module.exports = function(Aquisition) {
       ]
   });
   Aquisition.remoteMethod('rateIt', {
-      accepts: { type: 'object', root: true },
+      accepts: { arg: 'data', type: 'object'},
       returns: [
           { arg: 'details', type: 'object' }
       ]
