@@ -20,7 +20,7 @@
 
             self.map = map;
 
-            /*$geolocation.getCurrentPosition({
+            $geolocation.getCurrentPosition({
                 timeout: 60000
             }).then(function(position) {
 
@@ -31,9 +31,9 @@
                 // Pan to client location
                 map.panTo(latLng);
 
-            });*/
+            });
 
-            // Watch the position change of client
+           /* // Watch the position change of client
             $geolocation.watchPosition({
                 timeout: 60000,
                 maximumAge: 250,
@@ -53,14 +53,14 @@
                 // Pan to client location
                 map.panTo(latLng);
 
-                /*$scope.map = {
+                /!*$scope.map = {
                     center: {
                         latitude: newValue.latitude,
                         longitude: newValue.longitude
                     },
                     zoom: 16
-                };*/
-            }, true);
+                };*!/
+            }, true);*/
 
             /*// Get current client location
             geolocation.getLocation().then(function(data){
