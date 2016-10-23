@@ -14,8 +14,29 @@ $ bower install
 $ sudo npm install gulp -g
 ```
 
-### Build the project: ###
+### Install http-server or any orher server ###
+```
+$ sudo npm install http-server -g
+```
+
+### Build the client side: ###
 ```
 $ gulp fetchLibs
 $ gulp inject
+```
+
+### Run the client side ###
+```
+$ http-server client
+```
+
+### Build the api side ###
+```
+$ cd <%project-folder%>/api
+$ npm install
+```
+
+### Run the api side ###
+```
+$ node .
 ```
