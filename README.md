@@ -14,7 +14,7 @@ $ bower install
 $ sudo npm install gulp -g
 ```
 
-### Install http-server or any orher server ###
+### Install http-server or any other server ###
 ```
 $ sudo npm install http-server -g
 ```
