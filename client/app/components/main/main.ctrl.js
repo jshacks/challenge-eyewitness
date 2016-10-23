@@ -8,7 +8,7 @@
     function MainCtrl (Modals, $geolocation, NgMap, authService, $timeout, $scope, Aquisition, Review) {
         var self = this;
 
-        Review.like({ id: '580bf7012f5e8567082551ac' }, (res) => console.log(res));
+        //Review.like({ id: '580bf7012f5e8567082551ac' }, (res) => console.log(res));
 
         self.acquisitions = [];
         self.markers = [];
@@ -21,7 +21,6 @@
             //console.log(aquisitions);
 
             aquisitions.forEach((acquisition) => {
-
                 self.markers.push({
                     id: acquisition.id,
                     title: acquisition.type,
@@ -29,6 +28,8 @@
                 });
 
             });
+
+            console.log('markers', self.markers);
 
         });
 

@@ -3,7 +3,7 @@
 <div class="map-container">
     <div map-lazy-load="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgNApputr8n44H22Nmvs8iAsX47yqE80g">
         <ng-map center="47.1027128,28.4990345" zoom="13"
-                styles="{{main.styles}}"
+                styles="{{main.styles}}">
             <marker ng-repeat="marker in main.markers"
                     id="{{marker.id}}"
                     position="{{::marker.position}}"
@@ -40,7 +40,7 @@
 <aside class="side-nav md-whiteframe-5dp">
     <ul class="acquisitions">
         <li dir-paginate="item in main.acquisitions | itemsPerPage: 20">
-            <a href="!#">{{ item.title }}</a>
+            <a href="!#">{{ item.description }}</a>
         </li>
     </ul>
     <dir-pagination-controls max-size="4"></dir-pagination-controls>
