@@ -10,12 +10,18 @@ angular.module('eyewitness', [
     'angular-storage',
     'angular-jwt',
     'auth0.lock',
+    'ngResource',
+    'lbServices'
 ])
 
 .service('authService', authService)
 
-.config(['lockProvider', function(lockProvider) {
+.config(['lockProvider', 'LoopBackResourceProvider',
+    function(lockProvider, LoopBackResourceProvider) {
 
+    LoopBackResourceProvider.setAuthHeader('X-Access-Token');
+
+    LoopBackResourceProvider.setUrlBase('http://localhost:3000/api')
     lockProvider.init({
         clientID: 'urANnKd7ms9SHtPm1oh4xgtUbF1AiTpJ',
         domain: 'maximblack.eu.auth0.com',

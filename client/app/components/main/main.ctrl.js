@@ -3,11 +3,14 @@
 
     angular
         .module('eyewitness')
-        .controller('MainCtrl', ['Modals', '$geolocation', 'NgMap', 'authService', '$timeout', '$scope', MainCtrl]);
+        .controller('MainCtrl', ['Modals', '$geolocation', 'NgMap', 'authService', '$timeout', '$scope', 'Aquisition', 'Review', MainCtrl]);
 
-    function MainCtrl (Modals, $geolocation, NgMap, authService, $timeout, $scope) {
+    function MainCtrl (Modals, $geolocation, NgMap, authService, $timeout, $scope, Aquisition, Review) {
         var self = this;
 
+        Review.like({ id: '580bf7012f5e8567082551ac' }, (res) => console.log(res));
+        Aquisition.top({ limit: 10 }, (res) => console.log(res))
+        Aquisition.rating({ id: "580b6db54d3873f948e18332" }, (res) => console.log(res))
         self.profile = null;
 
         // Get profile, if logged in

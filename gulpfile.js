@@ -42,6 +42,7 @@ gulp.task('inject', () => {
         libsDir + 'ngGeolocation.js',
         libsDir + 'angular-jwt.js',
         libsDir + 'angular-storage.js',
+        libsDir + 'angular-resource.js',
         libsDir + 'angular-lock.js'
     ]);
 
