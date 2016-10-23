@@ -42,7 +42,8 @@ gulp.task('inject', () => {
         libsDir + 'ngGeolocation.js',
         libsDir + 'angular-jwt.js',
         libsDir + 'angular-storage.js',
-        libsDir + 'angular-lock.js'
+        libsDir + 'angular-lock.js',
+        libsDir + 'dirPagination.js'
     ]);
 
     var cssLibs = gulp.src(libsDir + '*.css');
