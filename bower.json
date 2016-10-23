@@ -24,6 +24,7 @@
     "auth0.js": "^7.3.0",
     "auth0-lock": "^10.4.1",
     "ngGeolocation": "^0.0.8",
+    "angularUtils-pagination": "angular-utils-pagination#^0.11.1",
     "angular-resource": "^1.5.8"
   },
   "overrides": {

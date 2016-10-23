@@ -3,13 +3,14 @@ angular.module('eyewitness', [
     'angularModalService',
     'ngMap',
     'ngMaterial',
-    'md.data.table',
+    //'md.data.table',
     'mega.rating',
     'ngGeolocation',
     //'auth0.auth0',
     'angular-storage',
     'angular-jwt',
     'auth0.lock',
+    'angularUtils.directives.dirPagination',
     'ngResource',
     'lbServices'
 ])
