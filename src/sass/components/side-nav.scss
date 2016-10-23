@@ -13,6 +13,7 @@
     }
 
     .acquisitions {
+        margin-top: 120px;
         margin-bottom: 48px;
 
         li a {
@@ -64,5 +65,14 @@
     h2,
     p {
         margin: 0;
+    }
+
+    h1 {
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    [type=search] {
+        margin-bottom: 1rem;
     }
 }

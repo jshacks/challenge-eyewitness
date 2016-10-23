@@ -47,10 +47,11 @@
 <aside class="side-nav md-whiteframe-5dp">
     <div class="static-top">
         <h1>Eyewitness</h1>
+        <input type="search" placeholder="Search acqusition titles" ng-model="search">
         <p>List of public acquisitions:</p>
     </div>
     <ul class="acquisitions">
-        <li dir-paginate="item in main.acquisitions | itemsPerPage: 20">
+        <li dir-paginate="item in main.acquisitions | itemsPerPage: 20 | filter:search">
             <a href="!#">{{ item.description }}</a>
         </li>
     </ul>
