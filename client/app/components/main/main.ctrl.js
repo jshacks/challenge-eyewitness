@@ -9,7 +9,29 @@
         var self = this;
 
         Review.like({ id: '580bf7012f5e8567082551ac' }, (res) => console.log(res));
-        Aquisition.top({ limit: 10 }, (res) => console.log(res))
+
+        self.acquisitions = [];
+        self.markers = [];
+
+        Aquisition.top({ limit: 9000 }, (res) => {
+
+            const {aquisitions}= res;
+
+            self.acquisitions = aquisitions;
+            //console.log(aquisitions);
+
+            aquisitions.forEach((acquisition) => {
+
+                self.markers.push({
+                    id: acquisition.id,
+                    title: acquisition.type,
+                    position: [acquisition.location.lat, acquisition.location.lng]
+                });
+
+            });
+
+        });
+
         Aquisition.rating({ id: "580b6db54d3873f948e18332" }, (res) => console.log(res))
         self.profile = null;
 
@@ -605,7 +627,7 @@
             Modals.openDetaliedModal(event, 'qwerty');
         }
 
-        self.openModalHandler('a');
+        //self.openModalHandler('a');
     }
 
 }());

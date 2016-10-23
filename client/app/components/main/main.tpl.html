@@ -2,7 +2,37 @@
 
 <div class="map-container">
     <div map-lazy-load="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgNApputr8n44H22Nmvs8iAsX47yqE80g">
-        <ng-map center="47.1027128,28.4990345" zoom="12"></ng-map>
+        <ng-map center="47.1027128,28.4990345" zoom="12">
+            <marker ng-repeat="marker in main.markers"
+                    id="{{marker.id}}"
+                    position="{{::marker.position}}"
+                    title={{::marker.title}}
+            >
+                    <!--id="{{marker.alertId}}"
+
+                    title={{::marker.title}}
+                    icon="{{::marker.icon}}"
+                    on-click="dashboard.getFiredAlertsInfo()"-->
+
+            </marker>
+            <info-window id="info-window">
+                <div id="map-thing-information">
+                    <div class="item">
+                        <span class="name">Name: </span>{{::dashboard.checkedAlertOnMap.Thing.ThingName}}
+                    </div>
+                    <div class="item">
+                        <span class="name">Location: </span>{{::dashboard.checkedAlertOnMap.Thing.ThingName}}
+                    </div>
+                    <div class="item">
+                        <span class="name">Status: </span>{{::dashboard.checkedAlertOnMap.Status}}
+                    </div>
+                    <div class="item">
+                        <span class="name">Alerts: </span><span style="color:{{::dashboard.checkedAlertOnMap.color}};">{{::dashboard.checkedAlertOnMap.Alert.Severity}}</span>
+                    </div>
+                    <div class="item center"><button class="button-more" ng-click="dashboard.goToThingsGroup()">More</button></div>
+                </div>
+            </info-window>
+        </ng-map>
     </div>
 </div>
 
@@ -14,14 +44,14 @@
     </md-toolbar>
     <md-table-container class="md-table-container">
         <table md-table multiple ng-model="main.selected" md-progress="main.promise">
-            <thead md-head md-order="main.query.order" md-on-reorder="main.getDesserts">
+            <!--<thead md-head md-order="main.query.order" md-on-reorder="main.getDesserts">
             <tr md-row>
-                <th md-column>Title</th>
+                <th md-column>Acquisitions</th>
             </tr>
-            </thead>
+            </thead>-->
             <tbody md-body>
-            <tr md-row md-select-id="name" md-auto-select ng-repeat="dessert in main.data">
-                <td md-cell>{{dessert.title}}</td>
+            <tr md-row md-select-id="name" md-auto-select ng-repeat="acquisition in main.acquisitions">
+                <td md-cell>{{acquisition.description}}</td>
             </tr>
             </tbody>
         </table>

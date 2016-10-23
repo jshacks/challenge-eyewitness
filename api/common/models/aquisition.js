@@ -126,7 +126,7 @@ module.exports = function(Aquisition) {
             location: entry.location,
             status: entryData.tenderStatus.mdValue,
             type: entryData.tenderType.mdValue,
-            description: entryData.tenderData.goodsDesacr,
+            description: entryData.tenderData.goodsDescr,
             open_date: entryData.refTendeOpenDate,
             reg_number: entryData.regNumber,
             contracting_authority: {
