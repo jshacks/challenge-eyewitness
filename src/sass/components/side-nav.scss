@@ -51,4 +51,18 @@
             }
         }
     }
+
+    .static-top {
+        position: fixed;
+        top: 0;
+        width: 250px;
+        padding: 1rem .5rem;
+        background: $white;
+    }
+
+    h1,
+    h2,
+    p {
+        margin: 0;
+    }
 }

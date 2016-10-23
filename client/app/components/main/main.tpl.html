@@ -4,18 +4,25 @@
     <div map-lazy-load="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgNApputr8n44H22Nmvs8iAsX47yqE80g">
         <ng-map center="47.1027128,28.4990345" zoom="13"
                 styles="{{main.styles}}">
-            <marker ng-repeat="marker in main.markers"
-                    id="{{marker.id}}"
-                    position="{{::marker.position}}"
-                    title={{::marker.title}}
-            >
+            <!--<marker ng-repeat="marker in main.markers"-->
+                    <!--id="{{marker.id}}"-->
+                    <!--position="{{::marker.position}}"-->
+                    <!--title={{::marker.title}}-->
+            <!--&gt;-->
+
+            <custom-marker ng-repeat="marker in main.markers" id="foo" position="{{::marker.position}}" id="{{marker.id}}">
+                <div class="marker marker-status-{{::marker.statusId}}">
+                    {{::marker.price}} MDL
+                    <br/>
+                </div>
+            </custom-marker>
                     <!--id="{{marker.alertId}}"
 
                     title={{::marker.title}}
                     icon="{{::marker.icon}}"
                     on-click="dashboard.getFiredAlertsInfo()"-->
 
-            </marker>
+            <!--</marker>-->
             <info-window id="info-window">
                 <div id="map-thing-information">
                     <div class="item">
@@ -38,6 +45,10 @@
 </div>
 
 <aside class="side-nav md-whiteframe-5dp">
+    <div class="static-top">
+        <h1>Eyewitness</h1>
+        <p>List of public acquisitions:</p>
+    </div>
     <ul class="acquisitions">
         <li dir-paginate="item in main.acquisitions | itemsPerPage: 20">
             <a href="!#">{{ item.description }}</a>
